@@ -69,9 +69,9 @@ int datacheck = 0; // create a flag
 
 //step-4
 //when this controller receive message from the blue pill, a message pending callback will be call
-void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan)
+void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan1)
 {
-	HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO1, &RxHeader, RxData); //receive data from FIFO0
+	HAL_CAN_GetRxMessage(hcan1, CAN_RX_FIFO1, &RxHeader, RxData); //receive data from FIFO0
 	//the header will be stored in Rx header and the data will be stored in Rx data
 	//step-5.1
 	if (RxHeader.DLC == 2) // if the data length is two bytes then the flag will set
